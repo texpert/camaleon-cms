@@ -33,8 +33,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'will_paginate-bootstrap'
   s.add_dependency 'breadcrumbs_on_rails'
   s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'tinymce-rails', '< 5'
-  s.add_dependency 'jquery-rails'
   s.add_dependency 'coffee-rails'
   s.add_dependency 'sass-rails'
 
