@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "@types/jquery.validation": "1.16.0",
+    "Nestable2": "https://github.com/RamonSmit/Nestable2#1.2.4",
+    "admin-lte": "2.3.1",
+    "bootstrap": "3.4.1",
+    "bootstrap-select": "1.10.0",
+    "caret": "https://github.com/accursoft/caret#1.3.3",
+    "cropper": "https://github.com/fengyuanchen/cropper#2.3.4",
+    "eonasdan-bootstrap-datetimepicker": "https://github.com/Eonasdan/bootstrap-datetimepicker#4.17.37",
+    "intro.js": "https://github.com/usablica/intro.js#1.1.1",
+    "jQuery-Tags-Input": "https://github.com/xoxco/jQuery-Tags-Input",
+    "jQuery-tagEditor": "https://github.com/Pixabay/jQuery-tagEditor",
+    "jquery": "2.2.4",
+    "jquery-file-upload": "https://github.com/hayageek/jquery-upload-file#72b8dc771673bca553334eef00839024e5972f20",
+    "jquery-form": "https://github.com/jquery-form/form#3.51",
+    "jquery-plugin": "https://github.com/rmm5t/jquery-sieve#0.3.0",
+    "jquery-ui": "https://github.com/jquery/jquery-ui#1.11.4",
+    "jquery-validation": "https://github.com/jquery-validation/jquery-validation#1.15.0",
+    "mjaalnir-bootstrap-colorpicker": "https://github.com/itsjavi/bootstrap-colorpicker#1.0.0",
+    "moment": "2.11.2",
+    "tinymce": "4.9.11",
+    "underscore": "1.8.2"
+  }
+}
