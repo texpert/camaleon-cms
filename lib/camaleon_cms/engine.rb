@@ -8,9 +8,6 @@ require 'will_paginate'
 require 'will_paginate-bootstrap'
 require 'breadcrumbs_on_rails'
 require 'aws-sdk-s3'
-require 'font-awesome-rails'
-require 'coffee-rails'
-require 'sass-rails'
 require 'cama_contact_form'
 require 'cama_meta_tag'
 
@@ -42,11 +39,6 @@ module CamaleonCms
       app.config.i18n.enforce_available_locales = false
       app.config.i18n.load_path.unshift(*translation_files)
 
-      # assets
-      app.config.assets.paths << Rails.root.join("app", "apps")
-      app.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-      app.config.assets.paths << File.join($camaleon_engine_dir, "app", "apps")
-      app.config.assets.paths << File.join($camaleon_engine_dir, 'app', 'assets', 'fonts')
       app.config.encoding = "utf-8"
 
       # add prefix url, like: http://localhost.com/blog/

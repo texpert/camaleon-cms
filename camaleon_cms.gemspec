@@ -28,13 +28,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'draper', '>= 1.3'
   s.add_dependency 'meta-tags', '~> 2.0'
   s.add_dependency 'mini_magick'
-  s.add_dependency 'non-digest-assets'
   s.add_dependency 'will_paginate'
   s.add_dependency 'will_paginate-bootstrap'
   s.add_dependency 'breadcrumbs_on_rails'
-  s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'coffee-rails'
-  s.add_dependency 'sass-rails'
 
   s.add_dependency 'cama_contact_form', '>= 0.0.28'
   s.add_dependency 'cama_meta_tag'
