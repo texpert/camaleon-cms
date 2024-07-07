@@ -16,14 +16,14 @@ module CamaleonCms
     # attr_accessible :data_options
     # attr_accessible :data_metas
 
-    if ::Rails::VERSION::STRING < "7.1.0"
-      before_validation(on: [:create, :update ]) do
-        [:name, :description].each do |attr|
+    if ::Rails::VERSION::STRING < '7.1.0'
+      before_validation(on: %i[create update]) do
+        %i[name description].each do |attr|
           self[attr] = ActionController::Base.helpers.sanitize(attr) if attribute_changed_in_place?(attr)
         end
       end
     else
-      normalizes :name, :description, with: -> field { ActionController::Base.helpers.sanitize(field) }
+      normalizes :name, :description, with: ->(field) { ActionController::Base.helpers.sanitize(field) }
     end
 
     # callbacks

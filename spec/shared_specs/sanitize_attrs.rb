@@ -2,7 +2,7 @@
 
 RSpec.shared_examples 'sanitize attrs' do |model:, attrs_to_sanitize:|
   attrs_to_sanitize.each do |attr|
-    it "sanitizes name attribute" do
+    it 'sanitizes name attribute' do
       attrs_for_creation = { attr => '"><script>alert(1)</script>' }
       attrs_for_creation.merge!(site: @site) if defined?(@site)
       model_instance = model.create(attrs_for_creation)
