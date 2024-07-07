@@ -20,7 +20,7 @@ module CamaleonCms
     if ::Rails::VERSION::STRING < '7.1.0'
       before_validation(on: %i[create update]) do
         %i[name description].each do |attr|
-          next if !new_record? && !attribute_changed_in_place?(attr)
+          next if !new_record? && !attribute_changed?(attr)
 
           self[attr] = ActionController::Base.helpers.sanitize(__send__(attr))
         end
