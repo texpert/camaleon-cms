@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancancan', '>= 2.0', '< 4'
   s.add_dependency 'dartsass-sprockets'
   s.add_dependency 'draper', '>= 4.0.2'
-  s.add_dependency 'font-awesome-rails'
+  s.add_dependency 'font_awesome5_rails'
   s.add_dependency 'ipaddress'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'meta-tags', '~> 2.0'
