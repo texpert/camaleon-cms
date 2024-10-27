@@ -21,7 +21,7 @@ function build_custom_field_group(field_values, group_id, fields_data, is_repeat
     }
 
     if(is_repeat){
-        group_panel_body.sortable({ handle: ".move.fa-arrows", items: ' > .custom_sortable_grouped',
+        group_panel_body.sortable({ handle: ".move.fa-arrows-alt", items: ' > .custom_sortable_grouped',
             update: function(){ group_panel.trigger('update_custom_group_number'); },
             start: function (e, ui) { // fix tinymce
                 $(ui.item).find('.mce-panel').each(function () {
@@ -52,7 +52,7 @@ function cama_build_custom_field(panel, field_data, values){
     var field_counter = 0;
     var $field = panel.clone().wrap('li');
     panel.html("<div class='cama_w_custom_fields'></div>"+(field_data.multiple ? "<div class='field_multiple_btn'> <a href='#' class='btn btn-warning btn-xs'> <i class='fa fa-plus'></i> "+panel.attr('data-add_field_title')+"</a></div>" : ''));
-    var field_actions = '<div class="actions"><i style="cursor: move" class="fa fa-arrows"></i> <i style="cursor: pointer" class="fa fa-times text-danger"></i></div>';
+    var field_actions = '<div class="actions"><i style="cursor: move" class="fa fa-arrows-alt"></i> <i style="cursor: pointer" class="fa fa-times text-danger"></i></div>';
     var callback = $field.find('.group-input-fields-content').attr('data-callback-render');
     var $sortable = panel.children('.cama_w_custom_fields');
     function add_field(value){
@@ -95,7 +95,7 @@ function cama_build_custom_field(panel, field_data, values){
     if(field_data.multiple){ // sortable actions
         panel.find('.field_multiple_btn .btn').click(function () { add_field(field_data.default_value); return false; });
         panel.delegate('.actions .fa-times', "click", function () { if(confirm(I18n("msg.delete_item"))) $(this).closest('.editor-custom-fields').remove(); return false; });
-        $sortable.sortable({ handle: ".fa-arrows", items: ' > .editor-custom-fields',
+        $sortable.sortable({ handle: ".fa-arrows-alt", items: ' > .editor-custom-fields',
             start: function (e, ui) { // fix tinymce
                 $(ui.item).find('.mce-panel').each(function () {
                     tinymce.execCommand('mceRemoveEditor', false, $(this).next().addClass('cama_restore_editor').attr('id'));

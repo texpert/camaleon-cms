@@ -70,7 +70,7 @@ var init_form_validations = function (form, args) {
         $(this).each(function () {
             var $that = $(this);
             var options = $.extend({}, default_options, $that.data() || {});
-            var $content_image = $("<div class='content-upload-plugin'><a style='' href='#' target='_blank'><img src=''><br><span class='rm-file btn btn-xs btn-danger'><i class='fa fa-trash'></i></span></a></div>").hide();
+            var $content_image = $("<div class='content-upload-plugin'><a style='' href='#' target='_blank'><img src=''><br><span class='rm-file btn btn-xs btn-danger'><i class='fa fa-trash-alt'></i></span></a></div>").hide();
             if (options.type != 'image') $content_image.find('img').remove();
             var $btn_upload = $('<a class="btn btn-default" href="#"><i class="fa fa-upload"></i> ' + options.label + '</a>')
             $content_image.find('img').css('max-height', options.height);

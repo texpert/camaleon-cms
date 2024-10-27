@@ -28,12 +28,12 @@
                             <label><%= t('camaleon_cms.admin.settings.available_languages') %></label><br>
                             <% current_langs.each do |lang| %>
                                 <div class="checkbox">
-                                    <i class="fa fa-arrows-v" style="cursor: move;"> &nbsp;</i><label><input type="checkbox" value="<%= lang %>" checked name="lang[]"> <%= t("languages.#{lang}") %> </label>
+                                    <i class="fa fa-arrows-alt-v" style="cursor: move;"> &nbsp;</i><label><input type="checkbox" value="<%= lang %>" checked name="lang[]"> <%= t("languages.#{lang}") %> </label>
                                 </div>
                             <% end %>
                             <% PluginRoutes.system_info["available_languages"].each do |lang| next if current_langs.include?(lang.to_sym) %>
                                 <div class="checkbox">
-                                    <i class="fa fa-arrows-v" style="cursor: move;"> &nbsp;</i><label><input type="checkbox" value="<%= lang %>" name="lang[]"> <%= t("languages.#{lang}") %> </label>
+                                    <i class="fa fa-arrows-alt-v" style="cursor: move;"> &nbsp;</i><label><input type="checkbox" value="<%= lang %>" name="lang[]"> <%= t("languages.#{lang}") %> </label>
                                 </div>
                             <% end %>
                         </div>

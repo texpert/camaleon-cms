@@ -61,7 +61,7 @@ window.cama_init_media = function(mediaPanel) {
 
       if (item.find('.edit_item')) { // add button to edit image
         editImg = $(
-          '<button type="button" class="pull-right btn btn-default" title="Edit"><i class="fa fa-pencil"></i></button>').click(() => item.find('.edit_item').trigger('click')
+          '<button type="button" class="pull-right btn btn-default" title="Edit"><i class="fa fa-pencil-alt"></i></button>').click(() => item.find('.edit_item').trigger('click')
         )
       }
       mediaInfo.find('.p_footer').append(editImg)

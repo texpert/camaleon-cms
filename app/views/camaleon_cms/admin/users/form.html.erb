@@ -1,9 +1,9 @@
 <!-- PAGE TITLE -->
 <div class="page-title">
     <h2>
-        <span class="fa fa-users"></span>
-        <%= t('camaleon_cms.admin.page_title.edit') +":"+@user.fullname if !@user.new_record? %>
-        <%= t('camaleon_cms.admin.users.create_user') +":" if  @user.new_record? %>
+        <span class="fa fa-user"></span>
+        <%= t('camaleon_cms.admin.page_title.edit') +": "+@user.fullname if !@user.new_record? %>
+        <%= t('camaleon_cms.admin.users.create_user') +": " if  @user.new_record? %>
     </h2>
 </div>
 <!-- END PAGE TITLE -->
