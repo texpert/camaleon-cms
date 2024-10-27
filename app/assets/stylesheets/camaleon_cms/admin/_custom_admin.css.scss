@@ -180,7 +180,7 @@
       overflow: hidden;
       width: 67px;
       float: left;
-      .fa {
+      .fa, .fas, .far, .fal, .fab, .fad, .fak {
         @include link_round;
       }
       & + .group-input-fields-content {
@@ -191,7 +191,7 @@
   .custom_sortable_grouped .header-field-grouped{
     padding: 5px;
     margin-bottom: 3px;
-    .fa{
+    .fa, .fas, .far, .fal, .fab, .fad, .fak {
       @include link_round;
       display: inline-block;
       float: none;
