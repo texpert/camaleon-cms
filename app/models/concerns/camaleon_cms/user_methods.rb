@@ -25,18 +25,18 @@ module CamaleonCms
           end
         end
       else
-        normalizes *%i[first_name last_name slogan username], with: lambda { |field|
+        normalizes(*%i[first_name last_name slogan username], with: lambda { |field|
           ActionController::Base.helpers.sanitize(
             field.gsub(CamaleonRecord::TRANSLATION_TAG_HIDE_REGEX, CamaleonRecord::TRANSLATION_TAG_HIDE_MAP)
           ).gsub(CamaleonRecord::TRANSLATION_TAG_RESTORE_REGEX, CamaleonRecord::TRANSLATION_TAG_RESTORE_MAP)
-        }
+        })
       end
 
       before_validation :cama_before_validation
       before_destroy :reassign_posts
       after_destroy :reassign_comments
       before_create { generate_token(:auth_token) }
-      # invaliidate sessions when changing password
+      # invalidate sessions when changing password
       before_update { generate_token :auth_token if will_save_change_to_password_digest? }
 
       # relations
@@ -137,7 +137,7 @@ module CamaleonCms
 
     # reassign all posts of this user to first admin
     # reassign all comments of this user to first admin
-    # if doesn't exist any other administrator, this will cancel the user destroy
+    # if it doesn't exist any other administrator, this will cancel the user destroy
     def reassign_posts
       all_posts.each do |p|
         s = p.post_type.site
