@@ -13,6 +13,34 @@ require 'capybara/rspec'
 require 'rack_session_access/capybara'
 require 'capybara-screenshot/rspec'
 
+Capybara.register_driver :selenium_chrome do |app|
+  version = Capybara::Selenium::Driver.load_selenium
+  options_key = Capybara::Selenium::Driver::CAPS_VERSION.satisfied_by?(version) ? :capabilities : :options
+  browser_options = Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    # Workaround https://bugs.chromium.org/p/chromedriver/issues/detail?id=2650&q=load&sort=-id&colspec=ID%20Status%20Pri%20Owner%20Summary
+    opts.add_argument('--disable-site-isolation-trials')
+  end
+
+  browser_options.add_option(:unhandled_prompt_behavior, 'ignore')
+
+  Capybara::Selenium::Driver.new(app, **{ browser: :chrome, options_key => browser_options })
+end
+
+Capybara.register_driver :selenium_chrome_headless do |app|
+  version = Capybara::Selenium::Driver.load_selenium
+  options_key = Capybara::Selenium::Driver::CAPS_VERSION.satisfied_by?(version) ? :capabilities : :options
+  browser_options = Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.add_argument('--headless=new')
+    opts.add_argument('--disable-gpu') if Gem.win_platform?
+    # Workaround https://bugs.chromium.org/p/chromedriver/issues/detail?id=2650&q=load&sort=-id&colspec=ID%20Status%20Pri%20Owner%20Summary
+    opts.add_argument('--disable-site-isolation-trials')
+  end
+
+  browser_options.add_option(:unhandled_prompt_behavior, 'ignore')
+
+  Capybara::Selenium::Driver.new(app, **{ :browser => :chrome, options_key => browser_options })
+end
+
 # Next 2 are Chrome drivers
 # Capybara.javascript_driver = :selenium_chrome
 Capybara.javascript_driver = :selenium_chrome_headless
@@ -25,6 +53,9 @@ Capybara.javascript_driver = :selenium_chrome_headless
 Capybara::Screenshot.register_filename_prefix_formatter(:rspec) do |example|
   "screenshot_#{example.description.gsub(' ', '-').gsub(%r{^.*/spec/}, '')}"
 end
+
+Capybara::Lockstep.timeout = 10 # seconds
+Capybara::Lockstep.timeout_with = :error
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
