@@ -1,23 +1,21 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-# create a widget
-def create_widget
-  within '#view_widget_list' do
-    first('#new_widget_link').click
-    wait_for_ajax
-  end
-  within '#widget_form' do
-    fill_in 'widget_main_name', with: 'test widget'
-    fill_in 'widget_main_slug', with: 'test-widget'
-    fill_in 'widget_main_description', with: 'lorem ipsum'
-    click_button 'Submit'
-  end
-end
-
-describe 'the Widgets', :js do
+RSpec.describe 'the Widgets', :js do
   init_site
+
+  # create a widget
+  def create_widget
+    within '#view_widget_list' do
+      first('#new_widget_link').click
+      wait_for_ajax
+    end
+    within '#widget_form' do
+      fill_in 'widget_main_name', with: 'test widget'
+      fill_in 'widget_main_slug', with: 'test-widget'
+      fill_in 'widget_main_description', with: 'lorem ipsum'
+      click_button 'Submit'
+    end
+  end
 
   it 'Widgets list' do
     admin_sign_in

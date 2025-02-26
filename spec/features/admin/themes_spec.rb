@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe 'the Themes', :js do
+RSpec.describe 'the Themes', :js do
   init_site
 
   it 'Themes list' do

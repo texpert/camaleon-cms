@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 include CamaleonCms::PluginsHelper
 
-describe 'Post frontend', :js do
+RSpec.describe 'Post frontend', :js do
   init_site
 
   it 'visit post' do

@@ -1,26 +1,24 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-# create a new user role
-def create_role
-  visit "#{cama_root_relative_path}/admin/user_roles"
-  within '#admin_content' do
-    click_link 'Add User Role'
-  end
-  expect(page).to have_css('#new_user_role')
-  within '#new_user_role' do
-    fill_in 'user_role_name', with: 'Test Role'
-    fill_in 'user_role_slug', with: 'tester-role'
-    fill_in 'user_role_description', with: 'tester descr'
-    check 'Comments'
-    check 'Themes'
-    click_button 'Submit'
-  end
-end
-
-describe 'the User Roles', :js do
+RSpec.describe 'the User Roles', :js do
   init_site
+
+  # create a new user role
+  def create_role
+    visit "#{cama_root_relative_path}/admin/user_roles"
+    within '#admin_content' do
+      click_link 'Add User Role'
+    end
+    expect(page).to have_css('#new_user_role')
+    within '#new_user_role' do
+      fill_in 'user_role_name', with: 'Test Role'
+      fill_in 'user_role_slug', with: 'tester-role'
+      fill_in 'user_role_description', with: 'tester descr'
+      check 'Comments'
+      check 'Themes'
+      click_button 'Submit'
+    end
+  end
 
   it 'User Roles list' do
     admin_sign_in

@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 include CamaleonCms::Frontend::ApplicationHelper
 
 RSpec.describe 'PostDecorator' do
   init_site
+
   it 'next and previous post related to post type' do
     post_type = create(:post_type, slug: 'test-post-type', site: @site)
     post3 = create(:post, post_type: post_type, slug: 'test3', post_order: 3).decorate

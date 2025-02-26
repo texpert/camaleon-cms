@@ -1,23 +1,21 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-# create a new post type
-def create_post_type
-  visit "#{cama_root_relative_path}/admin/settings/post_types"
-  expect(page).to have_content('Post')
-  expect(page).to have_content('Page')
-  within('#post_type_form') do
-    fill_in 'post_type_name', with: 'Test cat'
-    fill_in 'post_type_slug', with: 'test-content'
-    fill_in 'post_type_description', with: 'test-content descri'
-    check('Manage Multiple Categories')
-    click_button 'Submit'
-  end
-end
-
-describe 'the Content Groups', :js do
+RSpec.describe 'the Content Groups', :js do
   init_site
+
+  # create a new post type
+  def create_post_type
+    visit "#{cama_root_relative_path}/admin/settings/post_types"
+    expect(page).to have_content('Post')
+    expect(page).to have_content('Page')
+    within('#post_type_form') do
+      fill_in 'post_type_name', with: 'Test cat'
+      fill_in 'post_type_slug', with: 'test-content'
+      fill_in 'post_type_description', with: 'test-content descri'
+      check('Manage Multiple Categories')
+      click_button 'Submit'
+    end
+  end
 
   it 'create new content group' do
     admin_sign_in

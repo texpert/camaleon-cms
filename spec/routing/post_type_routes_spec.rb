@@ -1,4 +1,4 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
 RSpec.describe 'routes for Post Types', type: :routing do
   init_site
