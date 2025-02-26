@@ -49,4 +49,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.middleware.use RackSessionAccess::Middleware
+  config.middleware.insert_before 0, Capybara::Lockstep::Middleware
 end
