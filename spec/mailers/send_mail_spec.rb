@@ -1,6 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-describe 'CamaleonCms::HtmlMailer' do
+RSpec.describe 'CamaleonCms::HtmlMailer' do
   before do
     @site = create(:site).decorate
   end

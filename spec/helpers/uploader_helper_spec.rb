@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe CamaleonCms::UploaderHelper do
+RSpec.describe CamaleonCms::UploaderHelper do
   init_site
 
   before do

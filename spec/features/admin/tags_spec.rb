@@ -1,21 +1,19 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+RSpec.describe 'the signin process', :js do
+  init_site
 
-# create a new post tag
-def create_tag
-  visit "#{cama_root_relative_path}/admin/post_type/#{post_type_id}/post_tags"
-  within('#new_post_tag') do
-    fill_in 'post_tag_name', with: 'Test tag'
-    fill_in 'post_tag_slug', with: 'test-tag'
-  end
-  click_button 'Submit'
-end
-
-describe 'the signin process', :js do
   let(:post_type_id) { @site.post_types.where(slug: :post).pick(:id) }
 
-  init_site
+  # create a new post tag
+  def create_tag
+    visit "#{cama_root_relative_path}/admin/post_type/#{post_type_id}/post_tags"
+    within('#new_post_tag') do
+      fill_in 'post_tag_name', with: 'Test tag'
+      fill_in 'post_tag_slug', with: 'test-tag'
+    end
+    click_button 'Submit'
+  end
 
   it 'create new tag' do
     admin_sign_in

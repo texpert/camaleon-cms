@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
 def shortcode_tests
   before do
     helper.shortcodes_init
@@ -29,7 +27,7 @@ def shortcode_tests
   end
 end
 
-describe 'CamaleonCms::ShortCodeHelper' do
+RSpec.describe 'CamaleonCms::ShortCodeHelper' do
   describe 'Shortcode Simple' do
     shortcode_tests
     it 'No attributes' do

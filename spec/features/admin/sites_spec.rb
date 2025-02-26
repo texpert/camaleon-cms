@@ -1,25 +1,23 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-def create_site
-  visit "#{cama_root_relative_path}/admin/settings/sites"
-  expect(page).to have_content('List Sites')
-
-  # create user role
-  within '#admin_content' do
-    click_link 'Add Site'
-  end
-  expect(page).to have_css('#new_site')
-  within '#new_site' do
-    fill_in 'site_slug', with: 'owen'
-    fill_in 'site_name', with: 'Owen sub site'
-    click_button 'Submit'
-  end
-end
-
-describe 'the Sites', :js do
+RSpec.describe 'the Sites', :js do
   init_site
+
+  def create_site
+    visit "#{cama_root_relative_path}/admin/settings/sites"
+    expect(page).to have_content('List Sites')
+
+    # create user role
+    within '#admin_content' do
+      click_link 'Add Site'
+    end
+    expect(page).to have_css('#new_site')
+    within '#new_site' do
+      fill_in 'site_slug', with: 'owen'
+      fill_in 'site_name', with: 'Owen sub site'
+      click_button 'Submit'
+    end
+  end
 
   it 'Sites list' do
     admin_sign_in
