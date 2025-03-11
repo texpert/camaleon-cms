@@ -1,24 +1,23 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-# add a new comment for a post
-def add_new_comment
-  visit "#{cama_root_relative_path}/admin/posts/#{@site.posts.last.id}/comments"
-  page.execute_script('$("#comments_answer_list .panel-heading .btn-primary").click()')
-  wait_for_ajax
-  within 'form#new_comment' do
-    fill_in 'comment_content', with: 'Test comment'
-    find('button[type="submit"]').click
-  end
-end
-
-describe 'the Comments', :js do
+RSpec.describe 'the Comments', :js do
   init_site
+
+  # add a new comment for a post
+  def add_new_comment
+    visit "#{cama_root_relative_path}/admin/posts/#{@site.posts.last.id}/comments"
+    page.execute_script('$("#comments_answer_list .panel-heading .btn-primary").click()')
+
+    within 'form#new_comment' do
+      fill_in 'comment_content', with: 'Test comment'
+      find('button[type="submit"]').click
+    end
+  end
 
   it 'Add Comment' do
     admin_sign_in
     add_new_comment
+
     expect(page).to have_css('.alert-success')
   end
 
@@ -42,9 +41,9 @@ describe 'the Comments', :js do
     # answer comment
     within '#comments_answer_list' do
       first('.reply').click
-      wait_for_ajax
     end
-    within '#new_comment' do
+
+    within 'form#new_comment' do
       fill_in 'comment_content', with: 'test answer comment'
       find('button[type="submit"]').click
     end

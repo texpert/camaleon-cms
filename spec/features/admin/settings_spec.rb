@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-
-describe 'the Site Settings SideBar options', :js do
+RSpec.describe 'the Site Settings SideBar options', :js do
   init_site
 
   before { admin_sign_in }

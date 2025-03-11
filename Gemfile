@@ -7,6 +7,7 @@ gem 'rails', '~> 8.0.1'
 gem 'selenium-webdriver'
 gem 'sprockets-rails', '>= 3.5.2'
 
+gem 'capybara-lockstep'
 gem 'capybara-screenshot'
 
 gem 'rspec_junit_formatter'
